@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" href="/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>%VITE_APP_TITLE%</title>
+  </head>
+  <body>
+    <div id="app">
+      <style>
+        @keyframes app-spinner {
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes app-spinner-dash {
+          0% {
+            stroke-dasharray: 1,200;
+            stroke-dashoffset: 0;
+          }
+          50% {
+            stroke-dasharray: 89,200;
+            stroke-dashoffset: -35;
+          }
+          100% {
+            stroke-dasharray: 89,200;
+            stroke-dashoffset: -124;
+          }
+        }
+        .app-logo {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100vw;
+          height: 100vh;
+        }
+        .app-logo .app-spinner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .app-logo .logo-img {
+          position: absolute;
+          z-index: 1;
+          width: 2vw;
+        }
+        .app-spinner .spinner {
+          position: relative;
+          width: 4vw;
+          height: 4vw;
+        }
+        .app-spinner .spinner:before {
+          content: '';
+          display: block;
+          padding-top: 100%;
+        }
+        .app-spinner .spinner-circular {
+          animation: rotate 2s linear infinite;
+          height: 100%;
+          transform-origin: center center;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          margin: auto;
+        }
+        .app-spinner .spinner-path {
+          stroke-dasharray: 150,200;
+          stroke-dashoffset: -10;
+          animation: app-spinner-dash 1.5s ease-in-out infinite;
+          stroke-linecap: round;
+        }
+      </style>
+      <div class="app-logo">
+        <div class="app-spinner">
+          <img src="/src/assets/logo.png" class="logo-img" alt="logo-img"/>
+          <div class="spinner">
+            <svg class="spinner-circular" viewBox="25 25 50 50" >
+              <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke="rgba(69, 120, 233, 1)" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

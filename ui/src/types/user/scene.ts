@@ -1,0 +1,19 @@
+/**
+ * 验证码场景类型
+ */
+export type IBSceneType =
+  | 'LOGIN'
+  | 'SUBSCRIBE'
+  | 'USER_INFO'
+  | 'REGISTER_MOBILE'
+  | 'REGISTER_EMAIL'
+  | 'FIND_PASSWORD'
+  | 'REST_PASSWORD'
+  | 'BIND_MOBILE'
+  | 'CHANGE_MOBILE'
+  | 'MODIFY_PASSWORD'
+  | 'VALIDATE_MOBILE'
+  | 'BIND_USER'
+  | 'BIND_EMAIL'
+  | 'CHANGE_EMAIL'
+  | 'SET_PAY_PWD'

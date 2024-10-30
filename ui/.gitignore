@@ -1,0 +1,14 @@
+.vscode
+.idea
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+electron
+!electron/app.js
+!electron/package.json
+!electron/icons
+yarn-error.log
+auto-imports.d.ts
+components.d.ts

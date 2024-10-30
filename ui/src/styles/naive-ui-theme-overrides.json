@@ -1,0 +1,11 @@
+{
+  "common": {
+    "primaryColor": "#5359fd",
+    "primaryColorHover": "#626ffe",
+    "primaryColorPressed": "#4a50dc",
+    "primaryColorSuppl": "#4a50dc"
+  },
+  "Dialog": {
+    "borderRadius": "8px"
+  }
+}

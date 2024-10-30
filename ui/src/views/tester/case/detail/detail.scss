@@ -1,0 +1,218 @@
+.step-container {
+  width: 100%;
+  padding-top: 24px;
+  box-sizing: border-box;
+}
+.tools-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #dfdfdf;
+  &.failed,
+  &.success,
+  &.running,
+  &.starting {
+    border-bottom: 2px solid var(--status-color);
+    .status-box {
+      display: flex;
+    }
+  }
+  .status-box {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 545px;
+    margin-left: -76px;
+    bottom: -15px;
+    height: 30px;
+    padding: 0 50px;
+    border-radius: 13px;
+    margin-right: 130px;
+    border: 2px solid var(--status-color);
+    background-color: #ffffff;
+    color: var(--status-color);
+    font-size: 12px;
+  }
+}
+.left-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px 12px;
+  flex: 1;
+  .back-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #7f7d7d;
+    box-sizing: border-box;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .project-name {
+    flex: 1;
+    max-width: 450px;
+  }
+
+}
+.right-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px 12px;
+  flex-shrink: 0;
+  .record-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+    &:not(.running, .disabled):hover {
+      cursor: pointer;
+      background-color: #e0e0e0;
+      transform: scale(1.1);
+    }
+    &.recording {
+      .inner-circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        animation: recording-gradient 1500ms linear infinite alternate;
+        @keyframes recording-gradient {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0.3;
+          }
+        }
+      }
+    }
+    .inner-circle {
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-color: #d80202;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+  }
+  .play-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 130px;
+    height: 28px;
+    padding-left: 0;
+    padding-right: 12px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    border-radius: 14px;
+    cursor: pointer;
+    user-select: none;
+    &.disabled {
+      cursor: not-allowed;
+      .play-icon:hover {
+        background-color: initial;
+      }
+    }
+    .play-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
+      .icon-stop {
+        display: none;
+      }
+      &:hover {
+        background-color: #e2e2e2;
+        &.running {
+          .icon-play {
+            display: none;
+          }
+          .icon-stop {
+            display: block;
+          }
+        }
+      }
+      .local-running-icon {
+        color: #39c0b0;
+        animation: icon-circle 2000ms linear infinite;
+        @keyframes icon-circle {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+      .remote-running-icon {
+        animation: icon-opacity 1000ms linear infinite alternate;
+        @keyframes icon-opacity {
+          from {
+            opacity: 0.2;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .text {
+      font-size: 12px;
+    }
+  }
+}
+.content-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100% - 60px - 10px);
+  :deep(.n-spin-container),
+  .step-list {
+    flex: 1;
+  }
+  .step-info {
+    position: relative;
+    z-index: 2;
+    width: 230px;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-left: 1px solid #dfdfdf;
+    :deep(.n-empty) {
+      margin-top: 160px;
+      .n-empty__description {
+        padding: 0 12px;
+      }
+    }
+  }
+}
+.step-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding-top: 34px;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+.step-list-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+}
